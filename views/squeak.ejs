@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Squeak</title>
+  </head>
+  <body>
+    <form method="POST" action="/chat/inbox">
+      <label for="name">Sender:</label><br />
+      
+      <select name="name" id="name">
+        <option value="" disabled selected>Select Inbox</option>
+    
+        <%for(let i=0; i<bookNames.length; i++){%>
+            <option placeholder="Select" value="<%=bookNames[i].name%>"><%=bookNames[i].name%></option>
+        
+        <%}%>
+        
+      </select><br />
+      
+      <input type="submit" value="Get Messages" />
+    </form>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+    <h2>Inbox: <% if(books.length != 0){ %>
+        <%=books[0].author%>
+     <% } %> </h2>
+    <table>
+        
+        <tr>
+            <th>Sender </th>
+            <th>Message</td>
+        </tr>
+    
+    
+        <%for(let i=0; i<books.length; i++){%>
+            <tr>
+                <td><%=books[i].name%></td>
+                <td><%=books[i].genre%></td>
+                
+    
+            </tr>
+        <%}%>
+    </table>
+
+
+  </body>
+</html>

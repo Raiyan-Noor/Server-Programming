@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+  </head>
+  <body>
+    <form method="POST" action="/chat">
+      <label for="name">Sender:</label><br />
+      
+      <select name="name" id="name">
+        <option value="" disabled selected>Select Sender</option>
+        <%for(let i=0; i<users.length; i++){%>
+            <option value="<%=users[i].name%>"><%=users[i].name%></option>
+        
+        <%}%>
+        
+      </select><br />
+      
+      <label for="author">Reciever:</label><br />
+      <select name="author" id="author">   
+        <option value="" disabled selected>Select Receiver</option>
+        <%for(let i=0; i<users.length; i++){%>
+            <option value="<%=users[i].name%>"><%=users[i].name%></option>
+        
+        <%}%>
+            <option value="Everyone">Everyone</option>
+        
+      </select><br />
+
+      <label for="genre">Message:</label><br />
+      <input type="text" id="genre" name="genre" /><br />
+      <input type="submit" value="Send" />
+    </form>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+
+
+  </body>
+</html>
